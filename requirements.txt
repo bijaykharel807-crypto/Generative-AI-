@@ -3,3 +3,5 @@ matplotlib
 numpy
 openpyxl
 pandas
+groq
+openai
