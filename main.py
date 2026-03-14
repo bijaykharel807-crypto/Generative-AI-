@@ -1,6 +1,6 @@
 """
 main.py - FastAPI application integrating Groq and OpenAI LLMs.
-Includes CORS for React frontend, dotenv for environment variables,
+Includes permissive CORS, dotenv for environment variables,
 and your custom endpoints. Example client calls are at the bottom.
 """
 
@@ -23,7 +23,7 @@ from openai import AsyncOpenAI, OpenAIError
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# ---------- API Keys (now loaded from .env) ----------
+# ---------- API Keys ----------
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
@@ -51,12 +51,12 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# ---------- CORS Middleware (your configuration) ----------
+# ---------- CORS Middleware (permissive) ----------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # React dev server
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=["*"],      # Allow any origin
+    allow_methods=["*"],      # Allow any HTTP method
+    allow_headers=["*"],      # Allow any headers
 )
 
 # ---------- Your Custom Endpoints ----------
@@ -78,7 +78,7 @@ def submit_data(data: dict):
     """Your data submission endpoint."""
     return {"received": data, "status": "ok"}
 
-# ---------- AI Concepts Info (formerly the root) ----------
+# ---------- AI Concepts Info ----------
 @app.get("/info")
 async def info():
     """Overview of AI concepts and available providers."""
