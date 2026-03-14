@@ -1,7 +1,5 @@
-python-dotenv
-matplotlib
-numpy
-openpyxl
-pandas
+streamlit
+networkx
 groq
 openai
+python-dotenv
