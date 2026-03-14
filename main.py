@@ -71,7 +71,7 @@ def get_knowledge_graph():
             docs = load_and_clean_docs()
             kg = build_knowledge_graph(docs)
             nx.write_gexf(kg, "medical_kg.gexf")
-            st.success("Knowledge graph built and saved.")
+            st.success("")
     return kg
 
 # ----------------------------------------------------------------------
