@@ -65,9 +65,9 @@ def build_knowledge_graph(docs):
 def get_knowledge_graph():
     if os.path.exists("medical_kg.gexf"):
         kg = nx.read_gexf("medical_kg.gexf")
-        st.info("Loaded existing knowledge graph from disk.")
+        st.info("")
     else:
-        with st.spinner("Building knowledge graph from documents..."):
+        with st.spinner(""):
             docs = load_and_clean_docs()
             kg = build_knowledge_graph(docs)
             nx.write_gexf(kg, "medical_kg.gexf")
