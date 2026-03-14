@@ -118,7 +118,7 @@ def is_safe(question):
 # 5. Streamlit UI
 # ----------------------------------------------------------------------
 st.set_page_config(page_title="Medical QA Assistant", page_icon="💊")
-st.title("💊 Medical QA Assistant with Llama 3.3 + Knowledge Graph")
+st.title("💊 Medical QA Assistant ")
 
 # Load knowledge graph
 kg = get_knowledge_graph()
